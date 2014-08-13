@@ -1,0 +1,2 @@
+module TitleAssetsHelper
+end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @title_owner.title_id %>
+</p>
+
+<p>
+  <strong>Studio:</strong>
+  <%= @title_owner.studio_id %>
+</p>
+
+<%= link_to 'Edit', edit_title_owner_path(@title_owner) %> |
+<%= link_to 'Back', title_owners_path %>
