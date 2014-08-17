@@ -1,25 +1,60 @@
-# SQLite version 3.x
-#   gem install sqlite3
+## SQLite version 3.x
+##   gem install sqlite3
+##
+##   Ensure the SQLite 3 gem is defined in your Gemfile
+##   gem 'sqlite3'
+##
+#default: &default
+#  adapter: sqlite3
+#  pool: 5
+#  timeout: 5000
 #
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+#development:
+#  <<: *default
+#  database: db/development.sqlite3
 #
-default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+## Warning: The database defined as "test" will be erased and
+## re-generated from your development database when you run "rake".
+## Do not set this db to the same as development or production.
+#test:
+#  <<: *default
+#  database: db/test.sqlite3
+#
+#production:
+#  <<: *default
+#  database: db/production.sqlite3
 
 development:
-  <<: *default
-  database: db/development.sqlite3
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: movierepository
+  host: movierepositorymysqldb.cvcan0r3p0kd.us-west-2.rds.amazonaws.com
+  pool: 5
+  username: movierepository
+  password: movierepo123
+  socket: ./mysqld.sock
+  port: 3306
 test:
-  <<: *default
-  database: db/test.sqlite3
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  host: movierepositorymysqldb.cvcan0r3p0kd.us-west-2.rds.amazonaws.com
+  database: movie_repository
+  pool: 5
+  username: movierepository
+  password: movierepo123
+  socket: ./mysqld.sock
+  port: 3306
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  host: 54.191.72.35
+  database: movierepositorymysqldb.cvcan0r3p0kd.us-west-2.rds.amazonaws.com
+  port: 3306
+  pool: 5
+  username: movierepository
+  password: movierepo123
+  socket: ./mysqldb.sock
