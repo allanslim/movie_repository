@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
-  resources :assets
 
-  resources :title_assets
-
-  resources :title_owners
-
-  resources :title_actors
-
-  resources :studios
-
-  resources :actors
-
-  resources :titles
 
   resources :users
+
+  # resources :studios_titles
+
+  # resources :assets
+
+  # resources :title_assets
+
+  # resources :title_actors
+
+  # resources :studios
+
+  # resources :actors
+
+  resources :titles
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -69,4 +71,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+     post '/dashboard' => 'titles#index'
+     root 'users#login'
 end

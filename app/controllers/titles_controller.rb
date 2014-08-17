@@ -4,7 +4,13 @@ class TitlesController < ApplicationController
   # GET /titles
   # GET /titles.json
   def index
-    @titles = Title.all
+    if params[:email].present? && params[:password].present?
+      @user = User.find_by(email: params[:email])
+      @titles = Title.all
+    else
+      flash[:notice] = "Invalid email address/password"
+      redirect_to root_path
+    end  
   end
 
   # GET /titles/1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813195718) do
+ActiveRecord::Schema.define(version: 20140815205745) do
 
   create_table "actors", force: true do |t|
     t.string   "firstname"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20140813195718) do
     t.string   "address"
     t.string   "telephone"
     t.string   "fax"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "studios_titles", force: true do |t|
+    t.integer  "title_id"
+    t.integer  "studio_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,7 +78,6 @@ ActiveRecord::Schema.define(version: 20140813195718) do
     t.string   "email"
     t.string   "password"
     t.string   "firstname"
-    t.string   "string"
     t.string   "lastname"
     t.integer  "role"
     t.datetime "created_at"

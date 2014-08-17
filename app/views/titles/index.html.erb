@@ -1,31 +1,40 @@
-<h1>Listing titles</h1>
+<div id="dashboard_bg" class="dashboard_bg"/>
+<br/><br/>
+<div class="container" >
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Length</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @titles.each do |title| %>
+<div class="well" >
+  <p> Welcome <%= @user.firstname %>!
+  <h1>Titles</h1>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= title.name %></td>
-        <td><%= title.description %></td>
-        <td><%= title.length %></td>
-        <td><%= title.rating %></td>
-        <td><%= link_to 'Show', title %></td>
-        <td><%= link_to 'Edit', edit_title_path(title) %></td>
-        <td><%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Length</th>
+        <th>Rating</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @titles.each do |title| %>
+        <tr>
+          <td><%= title.name %></td>
+          <td><%= title.description %></td>
+          <td><%= title.length %></td>
+          <td><%= title.rating %></td>
+          <td><%= link_to 'Show', title %></td>
+          <td><%= link_to 'Edit', edit_title_path(title) %></td>
+          <td><%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Title', new_title_path %>
+  <br>
+
+  <%= link_to 'New Title', new_title_path %>
+</div>
+
+</div>

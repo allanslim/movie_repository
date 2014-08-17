@@ -4,7 +4,6 @@ one:
   email: MyString
   password: MyString
   firstname: MyString
-  string: MyString
   lastname: MyString
   role: 1
 
@@ -12,6 +11,5 @@ two:
   email: MyString
   password: MyString
   firstname: MyString
-  string: MyString
   lastname: MyString
   role: 1
