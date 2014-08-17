@@ -71,6 +71,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-     post '/dashboard' => 'titles#index'
+     post '/verify' => 'titles#verify'
+     get '/dashboard' => 'titles#index'
      root 'users#login'
 end

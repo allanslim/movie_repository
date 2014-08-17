@@ -1,17 +1,42 @@
 class TitlesController < ApplicationController
   before_action :set_title, only: [:show, :edit, :update, :destroy]
+  before_action :isLogin, only: [:show, :edit, :update, :destroy]
+
+
+  def isLogin
+    if session[:user].nil?
+      gobackToLoginPage
+    end
+  end
+
+  def verify
+    if params[:email].present? && params[:password].present?
+      @user = User.find_by(email: params[:email], password: params[:password])
+
+      if @user.nil?
+        gobackToLoginPage
+      end  
+
+      session[:userid] = @user.id
+      redirect_to action: 'index' 
+    else
+      gobackToLoginPage
+    end  
+  end
 
   # GET /titles
   # GET /titles.json
   def index
-    if params[:email].present? && params[:password].present?
-      @user = User.find_by(email: params[:email])
+    @user = User.find(session[:userid])
+    
+    if @user.present? 
       @titles = Title.all
     else
-      flash[:notice] = "Invalid email address/password"
-      redirect_to root_path
+      gobackToLoginPage
     end  
   end
+
+   
 
   # GET /titles/1
   # GET /titles/1.json
@@ -76,5 +101,10 @@ class TitlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def title_params
       params.require(:title).permit(:name, :description, :length, :rating)
+    end
+
+    def gobackToLoginPage
+        flash[:notice] = "Invalid email address/password"
+        redirect_to root_path
     end
 end

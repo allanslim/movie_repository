@@ -1,0 +1,23 @@
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+<div class="container">
+    <% if flash[:notice] %>
+        <div class="alert alert-danger">
+        	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        	<%= flash[:notice] %>
+        </div>
+    <%end %>
+    <%= form_tag('/verify', class:'form-signin') do %>
+
+		<h1 class="form-signin-heading text-muted">Movie Repository</h1>
+<!-- 		<input type="text" class="form-control" placeholder="Email address" required="" autofocus="">
+		<input type="password" class="form-control" placeholder="Password" required=""> -->
+
+		<%= text_field_tag('email',nil,  class:'form-control', placeholder:'Email address') %>
+		<%= password_field_tag('password', nil, class:'form-control', placeholder:'Password') %>
+
+		<%= submit_tag('Login', class: 'btn btn-lg btn-primary btn-block') %>
+
+	<% end %>
+
+</div>

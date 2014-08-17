@@ -1,29 +1,37 @@
+<div id="dashboard_bg" class="dashboard_bg"/>
 <br/><br/>
 <div class="container" >
 
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @title.name %>
-</p>
+	<div class="well" >
+	<br/><br/>
+		<div class="container" >
 
-<p>
-  <strong>Description:</strong>
-  <%= @title.description %>
-</p>
+			<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Length:</strong>
-  <%= @title.length %>
-</p>
+			<p>
+			  <strong>Name:</strong>
+			  <%= @title.name %>
+			</p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @title.rating %>
-</p>
+			<p>
+			  <strong>Description:</strong>
+			  <%= @title.description %>
+			</p>
 
-<%= link_to 'Edit', edit_title_path(@title) %> |
-<%= link_to 'Back', titles_path %>
+			<p>
+			  <strong>Length:</strong>
+			  <%= @title.length %>
+			</p>
 
-</div>
+			<p>
+			  <strong>Rating:</strong>
+			  <%= @title.rating %>
+			</p>
+
+			<%= link_to 'Edit', edit_title_path(@title) %> |
+			<%= link_to 'Back', titles_path %>
+
+		</div>
+	</div>
+</div>	

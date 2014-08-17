@@ -1,0 +1,27 @@
+<h1>Listing studios_titles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Studio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @studios_titles.each do |studios_title| %>
+      <tr>
+        <td><%= studios_title.title_id %></td>
+        <td><%= studios_title.studio_id %></td>
+        <td><%= link_to 'Show', studios_title %></td>
+        <td><%= link_to 'Edit', edit_studios_title_path(studios_title) %></td>
+        <td><%= link_to 'Destroy', studios_title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Studios title', new_studios_title_path %>

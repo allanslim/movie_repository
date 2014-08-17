@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @studios_title.title_id %>
+</p>
+
+<p>
+  <strong>Studio:</strong>
+  <%= @studios_title.studio_id %>
+</p>
+
+<%= link_to 'Edit', edit_studios_title_path(@studios_title) %> |
+<%= link_to 'Back', studios_titles_path %>
