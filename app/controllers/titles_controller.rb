@@ -1,12 +1,16 @@
 class TitlesController < ApplicationController
   before_action :set_title, only: [:show, :edit, :update, :destroy]
-  before_action :isLogin, only: [:show, :edit, :update, :destroy]
-
+  before_action :isLogin
+  before_action :isAdmin
 
   def isLogin
-    if session[:user].nil?
+    if session[:userid].nil?
       gobackToLoginPage
     end
+  end
+
+    def isAdmin
+    @isAdmin = session[:isAdmin] 
   end
 
   def verify
@@ -18,6 +22,7 @@ class TitlesController < ApplicationController
       end  
 
       session[:userid] = @user.id
+      session[:isAdmin] = @user.role
       redirect_to action: 'index' 
     else
       gobackToLoginPage

@@ -1,11 +1,21 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
-
+  before_action :isAdmin
 
   def login
 
   end
+
+  def logout
+    session.clear
+    flash.clear
+    redirect_to root_path
+  end
+
+  def isAdmin
+    @isAdmin = session[:isAdmin] 
+  end
+
 
   # GET /users
   # GET /users.json

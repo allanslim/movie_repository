@@ -3,17 +3,17 @@ Rails.application.routes.draw do
 
   resources :users
 
-  # resources :studios_titles
+  resources :studios_titles
 
-  # resources :assets
+  resources :assets
 
-  # resources :title_assets
+  resources :title_assets
 
-  # resources :title_actors
+  resources :title_actors
 
-  # resources :studios
+  resources :studios
 
-  # resources :actors
+  resources :actors
 
   resources :titles
 
@@ -73,5 +73,6 @@ Rails.application.routes.draw do
   #   end
      post '/verify' => 'titles#verify'
      get '/dashboard' => 'titles#index'
+     get '/logout' => 'users#logout'
      root 'users#login'
 end
