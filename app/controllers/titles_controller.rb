@@ -1,6 +1,6 @@
 class TitlesController < ApplicationController
   before_action :set_title, only: [:show, :edit, :update, :destroy]
-  before_action :isLogin
+  before_action :isLogin, only: [:show, :edit, :update, :destroy]
   before_action :isAdmin
 
   def isLogin

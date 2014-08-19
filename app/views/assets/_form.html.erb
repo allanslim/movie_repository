@@ -12,14 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :asset %><br>
-    <%= f.text_field :asset %>
+    <%= f.label :assetValue %><br>
+    <%= f.text_field :assetValue %>
   </div>
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+    <%= f.label :assetType %><br>
+    <%= f.text_field :assetType %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <% if @isAdmin == 1 %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
 <% end %>

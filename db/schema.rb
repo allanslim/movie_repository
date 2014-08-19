@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815205745) do
+ActiveRecord::Schema.define(version: 20140819045304) do
 
   create_table "actors", force: true do |t|
     t.string   "firstname"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20140815205745) do
   end
 
   create_table "assets", force: true do |t|
-    t.string   "asset"
-    t.string   "type"
+    t.string   "assetValue"
+    t.string   "assetType"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

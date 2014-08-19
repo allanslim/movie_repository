@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
 
+  resources :assets
+
   resources :users
 
   resources :studios_titles
-
-  resources :assets
 
   resources :title_assets
 

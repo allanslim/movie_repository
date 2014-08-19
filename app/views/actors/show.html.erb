@@ -1,19 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div id="dashboard_bg" class="dashboard_bg"/>
+  <br/><br/>
+  <div class="container" >
+    <div class="well" >
+			<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @actor.firstname %>
-</p>
+			<p>
+			  <strong>Firstname:</strong>
+			  <%= @actor.firstname %>
+			</p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @actor.lastname %>
-</p>
+			<p>
+			  <strong>Lastname:</strong>
+			  <%= @actor.lastname %>
+			</p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @actor.age %>
-</p>
+			<p>
+			  <strong>Age:</strong>
+			  <%= @actor.age %>
+			</p>
 
-<%= link_to 'Edit', edit_actor_path(@actor) %> |
-<%= link_to 'Back', actors_path %>
+			<% if @isAdmin == 1 %>
+				<%= link_to 'Edit', edit_actor_path(@actor) %> |
+			<% end %>
+			<%= link_to 'Back', actors_path %>
+	 </div>
+	</div>
+</div>

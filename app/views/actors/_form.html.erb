@@ -23,7 +23,9 @@
     <%= f.label :age %><br>
     <%= f.number_field :age %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <% if @isAdmin == 1 %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+  <% end %>
 <% end %>

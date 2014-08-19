@@ -1,31 +1,58 @@
-<h1>Listing studios</h1>
+<div id="dashboard_bg" class="dashboard_bg"/>
+  <br/><br/>
+  <div class="container" >
+    <div class="well" >
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Telephone</th>
-      <th>Fax</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid" >
+      <ul class="nav navbar-nav">
+        <li ><%= link_to 'Title', titles_path %></li>
+        <li ><%= link_to 'Actors', actors_path %></li>
+        <li ><%= link_to 'Assets', assets_path %></li>
+        <li class="active"><%= link_to 'Studios', studios_path %></li>
+        <li><%= link_to 'Users', users_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Logout',  '/logout' %></li>
+      </ul>
+    </div>
+  </nav>    
 
-  <tbody>
-    <% @studios.each do |studio| %>
-      <tr>
-        <td><%= studio.name %></td>
-        <td><%= studio.address %></td>
-        <td><%= studio.telephone %></td>
-        <td><%= studio.fax %></td>
-        <td><%= link_to 'Show', studio %></td>
-        <td><%= link_to 'Edit', edit_studio_path(studio) %></td>
-        <td><%= link_to 'Destroy', studio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+        <h1>Listing studios</h1>
 
-<%= link_to 'New Studio', new_studio_path %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Telephone</th>
+              <th>Fax</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @studios.each do |studio| %>
+              <tr>
+                <td><%= studio.name %></td>
+                <td><%= studio.address %></td>
+                <td><%= studio.telephone %></td>
+                <td><%= studio.fax %></td>
+                <td><%= link_to 'Show', studio %></td>
+                <% if @isAdmin == 1 %>
+                  <td><%= link_to 'Edit', edit_studio_path(studio) %></td>
+                  <td><%= link_to 'Destroy', studio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+        <% if @isAdmin == 1 %>
+        <%= link_to 'New Studio', new_studio_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>

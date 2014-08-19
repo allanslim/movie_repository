@@ -23,5 +23,6 @@
 </table>
 
 <br>
-
+  <% if @isAdmin == 1 %>
 <%= link_to 'New Title actor', new_title_actor_path %>
+<% end %>

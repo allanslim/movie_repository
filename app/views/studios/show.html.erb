@@ -1,24 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div id="dashboard_bg" class="dashboard_bg"/>
+  <br/><br/>
+  <div class="container" >
+    <div class="well" >
 
-<p>
-  <strong>Name:</strong>
-  <%= @studio.name %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @studio.address %>
-</p>
+			<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @studio.telephone %>
-</p>
+			<p>
+			  <strong>Name:</strong>
+			  <%= @studio.name %>
+			</p>
 
-<p>
-  <strong>Fax:</strong>
-  <%= @studio.fax %>
-</p>
+			<p>
+			  <strong>Address:</strong>
+			  <%= @studio.address %>
+			</p>
 
-<%= link_to 'Edit', edit_studio_path(@studio) %> |
-<%= link_to 'Back', studios_path %>
+			<p>
+			  <strong>Telephone:</strong>
+			  <%= @studio.telephone %>
+			</p>
+
+			<p>
+			  <strong>Fax:</strong>
+			  <%= @studio.fax %>
+			</p>
+
+		    <% if @isAdmin == 1 %>
+				<%= link_to 'Edit', edit_studio_path(@studio) %> |
+			<% end %>
+			<%= link_to 'Back', studios_path %>
+	</div>
+  </div>
+</div>

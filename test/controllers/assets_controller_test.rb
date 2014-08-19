@@ -18,7 +18,7 @@ class AssetsControllerTest < ActionController::TestCase
 
   test "should create asset" do
     assert_difference('Asset.count') do
-      post :create, asset: { asset: @asset.asset, type: @asset.type }
+      post :create, asset: { assetType: @asset.assetType, assetValue: @asset.assetValue }
     end
 
     assert_redirected_to asset_path(assigns(:asset))
@@ -35,7 +35,7 @@ class AssetsControllerTest < ActionController::TestCase
   end
 
   test "should update asset" do
-    patch :update, id: @asset, asset: { asset: @asset.asset, type: @asset.type }
+    patch :update, id: @asset, asset: { assetType: @asset.assetType, assetValue: @asset.assetValue }
     assert_redirected_to asset_path(assigns(:asset))
   end
 
