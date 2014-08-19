@@ -28,6 +28,25 @@
 			  <strong>Rating:</strong>
 			  <%= @title.rating %>
 			</p>
+
+			<p>
+			  <strong>Actors:</strong>
+	          <ul>
+	          	 <% @actors.each do |actor| %>
+	          	    <li> <%= actor.fullname %></li>
+	          	 <% end %>
+	          </ul>
+			</p>
+
+			<p>
+			  <strong>Asset:</strong>
+	          <ul>
+	          	 <% @assets.each do |asset| %>
+	          	    <li> <%= asset.assetValue %> - (<%= asset.assetType%>)</li>
+	          	 <% end %>
+	          </ul>
+			</p>
+
 			<% if @isAdmin == 1 %>
 			<%= link_to 'Edit', edit_title_path(@title) %> |
 			<% end %> 

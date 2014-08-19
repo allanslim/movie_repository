@@ -46,7 +46,8 @@ class TitlesController < ApplicationController
   # GET /titles/1
   # GET /titles/1.json
   def show
-
+    @actors = @title.actors
+    @assets = @title.assets
   end
 
   # GET /titles/new
@@ -60,6 +61,7 @@ class TitlesController < ApplicationController
     @selectedActors = @title.actors.map do |ac| 
                       ac.id 
                     end
+    @assets = @title.assets
   end
 
   # POST /titles

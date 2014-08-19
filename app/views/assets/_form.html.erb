@@ -19,9 +19,15 @@
     <%= f.label :assetType %><br>
     <%= f.text_field :assetType %>
   </div>
-  <% if @isAdmin == 1 %>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= select_tag 'title_id', options_from_collection_for_select(@titles,'id', 'name', :selected => @selectedTitle), :class => 'form-control'  %>
+
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

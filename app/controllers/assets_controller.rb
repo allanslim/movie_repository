@@ -4,7 +4,7 @@ class AssetsController < ApplicationController
 
   def isAdmin
     @isAdmin = session[:isAdmin] 
-  end
+  end  
 
   # GET /assets
   # GET /assets.json
@@ -20,10 +20,14 @@ class AssetsController < ApplicationController
   # GET /assets/new
   def new
     @asset = Asset.new
+    @titles = Title.all
+    @selectedTitle = @asset.title
   end
 
   # GET /assets/1/edit
   def edit
+    @titles = Title.all
+    @selectedTitle = @asset.title
   end
 
   # POST /assets
@@ -46,6 +50,8 @@ class AssetsController < ApplicationController
   # PATCH/PUT /assets/1.json
   def update
     respond_to do |format|
+      @title = Title.find(params[:title_id])
+      @asset.title = @title
       if @asset.update(asset_params)
         format.html { redirect_to @asset, notice: 'Asset was successfully updated.' }
         format.json { render :show, status: :ok, location: @asset }
@@ -74,6 +80,6 @@ class AssetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
-      params.require(:asset).permit(:assetValue, :assetType)
+      params.require(:asset).permit(:assetValue, :assetType, :title_id)
     end
 end

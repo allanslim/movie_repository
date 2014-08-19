@@ -3,7 +3,9 @@
 one:
   assetValue: MyString
   assetType: MyString
+  title_id: 1
 
 two:
   assetValue: MyString
   assetType: MyString
+  title_id: 1
