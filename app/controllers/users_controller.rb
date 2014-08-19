@@ -20,7 +20,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if @isAdmin == 1
+      @users = User.all
+    else
+      @users = [User.find(session[:userid])]
+    end
   end
 
   # GET /users/1
