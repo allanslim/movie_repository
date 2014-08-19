@@ -28,5 +28,11 @@
     <%= f.text_field :rating %>
   </div>
 
+  <div class="field">
+    <%= f.label :actors %>
+    <%= select_tag 'actor_ids', options_from_collection_for_select(@actors,'id', 'fullname', :selected => @selectedActors), :multiple => true, :class => 'form-control'  %>
+
+  </div>
+
   <%= submit_tag('Submit', class: 'btn btn-lg btn-primary') %>
 <% end %>

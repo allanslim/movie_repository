@@ -46,6 +46,7 @@ class TitlesController < ApplicationController
   # GET /titles/1
   # GET /titles/1.json
   def show
+
   end
 
   # GET /titles/new
@@ -55,6 +56,10 @@ class TitlesController < ApplicationController
 
   # GET /titles/1/edit
   def edit
+    @actors = Actor.all
+    @selectedActors = @title.actors.map do |ac| 
+                      ac.id 
+                    end
   end
 
   # POST /titles
@@ -77,6 +82,10 @@ class TitlesController < ApplicationController
   # PATCH/PUT /titles/1.json
   def update
     respond_to do |format|
+      
+      selectedActors = Actor.find(params[:actor_ids])
+      @title.actors = selectedActors
+
       if @title.update(title_params)
         format.html { redirect_to @title, notice: 'Title was successfully updated.' }
         format.json { render :show, status: :ok, location: @title }

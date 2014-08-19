@@ -1,5 +1,10 @@
 class StudiosController < ApplicationController
   before_action :set_studio, only: [:show, :edit, :update, :destroy]
+  before_action :isAdmin
+
+  def isAdmin
+    @isAdmin = session[:isAdmin] 
+  end
 
   # GET /studios
   # GET /studios.json

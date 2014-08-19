@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :isAdmin
 
+  def isAdmin
+    @isAdmin = session[:isAdmin] 
+  end
+
+
   def login
 
   end
@@ -12,9 +17,7 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def isAdmin
-    @isAdmin = session[:isAdmin] 
-  end
+
 
 
   # GET /users

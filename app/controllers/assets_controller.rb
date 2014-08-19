@@ -1,5 +1,10 @@
 class AssetsController < ApplicationController
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
+  before_action :isAdmin
+
+  def isAdmin
+    @isAdmin = session[:isAdmin] 
+  end
 
   # GET /assets
   # GET /assets.json

@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819045304) do
+ActiveRecord::Schema.define(version: 20140819193726) do
 
   create_table "actors", force: true do |t|
     t.string   "firstname"
     t.string   "lastname"
     t.integer  "age"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "actors_titles", force: true do |t|
+    t.integer  "title_id"
+    t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,27 +45,6 @@ ActiveRecord::Schema.define(version: 20140819045304) do
   end
 
   create_table "studios_titles", force: true do |t|
-    t.integer  "title_id"
-    t.integer  "studio_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "title_actors", force: true do |t|
-    t.integer  "title_id"
-    t.integer  "actor_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "title_assets", force: true do |t|
-    t.integer  "asset_id"
-    t.integer  "title_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "title_owners", force: true do |t|
     t.integer  "title_id"
     t.integer  "studio_id"
     t.datetime "created_at"

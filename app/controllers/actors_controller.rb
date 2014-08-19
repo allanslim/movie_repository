@@ -1,5 +1,10 @@
 class ActorsController < ApplicationController
   before_action :set_actor, only: [:show, :edit, :update, :destroy]
+  before_action :isAdmin
+
+  def isAdmin
+    @isAdmin = session[:isAdmin] 
+  end
 
   # GET /actors
   # GET /actors.json

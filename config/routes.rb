@@ -9,8 +9,6 @@ Rails.application.routes.draw do
 
   resources :title_assets
 
-  resources :title_actors
-
   resources :studios
 
   resources :actors
