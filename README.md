@@ -19,3 +19,4 @@ useful rails commands:
 
 after you download run the following:
 * bundle install
+* copy config/secrets.yml.sample to config/secrets.yml
