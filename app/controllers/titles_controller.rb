@@ -48,11 +48,15 @@ class TitlesController < ApplicationController
   def show
     @actors = @title.actors
     @assets = @title.assets
+    @studios = @title.studios
+    
   end
 
   # GET /titles/new
   def new
     @title = Title.new
+    @studios = Studio.all
+    @actors = Actor.all
   end
 
   # GET /titles/1/edit
@@ -62,6 +66,13 @@ class TitlesController < ApplicationController
                       ac.id 
                     end
     @assets = @title.assets
+    @studios = Studio.all
+
+    
+    @selectedStudios = @title.studios.map do |st|
+                       st.id
+                    end
+    
   end
 
   # POST /titles
@@ -87,7 +98,10 @@ class TitlesController < ApplicationController
       
       selectedActors = Actor.find(params[:actor_ids])
       @title.actors = selectedActors
-
+      
+      selectedStudios = Studio.find(params[:studio_ids])
+      @title.studios = selectedStudios
+      
       if @title.update(title_params)
         format.html { redirect_to @title, notice: 'Title was successfully updated.' }
         format.json { render :show, status: :ok, location: @title }

@@ -29,9 +29,14 @@
   </div>
 
   <div class="field">
+    <%= f.label :studios %>
+    <%= select_tag 'studio_ids', options_from_collection_for_select(@studios,'id', 'name', :selected => @selectedStudios), :multiple => true, :class => 'form-control'  %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :actors %>
     <%= select_tag 'actor_ids', options_from_collection_for_select(@actors,'id', 'fullname', :selected => @selectedActors), :multiple => true, :class => 'form-control'  %>
-
   </div>
 
   <%= submit_tag('Submit', class: 'btn btn-lg btn-primary') %>

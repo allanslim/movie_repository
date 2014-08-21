@@ -15,6 +15,7 @@ class AssetsController < ApplicationController
   # GET /assets/1
   # GET /assets/1.json
   def show
+    @selectedTitle = @asset.title
   end
 
   # GET /assets/new
@@ -27,13 +28,16 @@ class AssetsController < ApplicationController
   # GET /assets/1/edit
   def edit
     @titles = Title.all
-    @selectedTitle = @asset.title
+    @selectedTitle = @asset.title.id
   end
 
   # POST /assets
   # POST /assets.json
   def create
     @asset = Asset.new(asset_params)
+
+    selectedTitle = Title.find(params[:title_id])
+    @asset.title = selectedTitle
 
     respond_to do |format|
       if @asset.save

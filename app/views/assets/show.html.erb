@@ -1,19 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div id="dashboard_bg" class="dashboard_bg"/>
+<br/><br/>
+<div class="container" >
 
-<p>
-  <strong>Assetvalue:</strong>
-  <%= @asset.assetValue %>
-</p>
 
-<p>
-  <strong>Assettype:</strong>
-  <%= @asset.assetType %>
-</p>
+	<div class="well" >
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @asset.title_id %>
-</p>
+		<p>
+		  <strong>Assetvalue:</strong>
+		  <%= @asset.assetValue %>
+		</p>
 
-<%= link_to 'Edit', edit_asset_path(@asset) %> |
-<%= link_to 'Back', assets_path %>
+		<p>
+		  <strong>Assettype:</strong>
+		  <%= @asset.assetType %>
+		</p>
+
+		<p>
+		  <strong>Title:</strong>
+		  <%= @selectedTitle.name  %>
+		</p>
+		<% if @isAdmin == 1 %>
+			<%= link_to 'Edit', edit_asset_path(@asset) %> |
+		<% end %>
+		<%= link_to 'Back', assets_path %>
+	</div>
+  </div>
+</div>

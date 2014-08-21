@@ -28,6 +28,14 @@
 			  <strong>Rating:</strong>
 			  <%= @title.rating %>
 			</p>
+			<p>
+			  <strong>Studios:</strong>
+	          <ul>
+	          	 <% @studios.each do |studio| %>
+	          	    <li> <%= studio.name %></li>
+	          	 <% end %>
+	          </ul>
+			</p>
 
 			<p>
 			  <strong>Actors:</strong>
