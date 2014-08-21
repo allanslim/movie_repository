@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def isAdmin
     @isAdmin = session[:isAdmin] 
+    @currentUserId = session[:userid]
   end
 
 

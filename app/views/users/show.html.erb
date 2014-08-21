@@ -11,7 +11,12 @@
 
       <p>
         <strong>Password:</strong>
-        <%= @user.password %>
+        <% if @currentUserId == @user.id %>
+          <%= @user.password %>
+        <% else %>
+            *****
+        <% end %>
+
       </p>
 
       <p>
