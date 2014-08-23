@@ -17,13 +17,14 @@ class TitlesController < ApplicationController
     if params[:email].present? && params[:password].present?
       @user = User.find_by(email: params[:email], password: params[:password])
 
-      if @user.nil?
-        gobackToLoginPage
+      if  @user.present?
+         session[:userid] = @user.id
+         session[:isAdmin] = @user.role
+         redirect_to action: 'index' 
+      else
+        gobackToLoginPage  
       end  
 
-      session[:userid] = @user.id
-      session[:isAdmin] = @user.role
-      redirect_to action: 'index' 
     else
       gobackToLoginPage
     end  
